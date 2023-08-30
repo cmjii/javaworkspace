@@ -1,0 +1,67 @@
+package day_06;
+
+import java.util.Scanner;
+
+public class Method03 {
+
+	public static int add(int num1, int num2) {
+		return num1+num2;
+	}
+	
+	public static int sub(int num1, int num2) {
+		return num1-num2;
+	}
+	
+	public static int mul(int num1, int num2) {
+		return num1*num2;
+	}
+	
+	public static double div(int num1, int num2) {
+		return (double) num1/num2;
+	}
+	
+	public static int re(int num1,  int num2) {
+		return num1%num2;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		/* 메서드를 활용한 계산기 작성
+		 * 연산자는 + - * / %
+		 * 두 수와 연산자를 입력받아서 메서드를 활용하여 연산
+		 * */
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("첫번째 숫자를 입력하세요");
+		int num = scan.nextInt();
+		System.out.println("두번째 숫자를 입력하세요");
+		int num1 = scan.nextInt();
+		System.out.println("연산자를 입력하세요");	
+		String tmp = scan.next();
+		
+		int add = add(num,num1);
+		int sub = sub(num,num1);
+		int mul = mul(num,num1);
+		double div = div(num,num1);
+		int re = re(num,num1);
+		
+		switch (tmp) {
+		case "+" :
+			System.out.println(num+"+"+num1+"="+add); break;
+		case "-" :
+			System.out.println(num+"-"+num1+"="+sub); break;
+		case "*" :
+			System.out.println(num+"*"+num1+"="+mul); break;
+		case "/" :
+			System.out.println(num+"/"+num1+"="+div); break;
+		case "%":
+			System.out.println(num+"%"+num1+"="+re); break;
+		} 
+	
+		
+		scan.close();
+			
+	}
+
+}

@@ -1,0 +1,30 @@
+package day_07;
+
+public class Nethod05 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//2~100까지 소수 출력
+		//2~100까지 for문을 돌려서 메서드 호출하여 true 출력
+		
+	}
+	
+	//기능 : 정수가 주어지면 이 정수가 소수인지 아닌지 판단 (true false)
+	//소수는 1과 자기 자신만을 약수로 가지는 수
+	//리턴타입: 소수를 리턴 int
+	//매개변수: X
+	//메서드명: prime
+	
+	public static void int() {
+		int cnt = 0;
+		for (int i =2; i<=100; i++) {
+			cnt = 0;
+			for(int a=1; a<=i; i++) {
+				
+			}
+			
+		}
+	}
+
+	
+}

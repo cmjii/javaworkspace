@@ -1,0 +1,55 @@
+package day_06;
+
+public class Method02 {
+
+	public static int add(int num1, int num2) {
+		return num1+num2;
+	}
+	
+	public static int sub(int num1, int num2) {
+		return num1-num2;
+	}
+	
+	public static void mul(int num1, int num2) {
+		System.out.println(num1 * num2);
+	}
+	
+	public static void div(double num1, double num2) {
+		System.out.println(num1/num2);
+	}
+	
+	public static double div1(int num1, int num2) {
+		return (double) num1/num2;
+	}
+	
+	public static void re(int num1, int num2) {
+		System.out.println(num1%num2);
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//메서드를 활용하여 계산기를 작성
+		//메서드는 +-*/%
+		//두 정수가 주어지면 두 정수의 연산을 하는 메서드를 작성
+		//+ 호출(메인) - 호출(메인) *호출 / 호출(리턴 더블) % 호출
+		
+		int sum = add(3, 5);
+		System.out.println(sum);
+		
+		int sub = sub(3, 5);
+		System.out.println(sub);
+		
+	double div1 = div1(3,5);
+		System.out.println(div1);
+		mul(3,5);
+		div(3,5);
+		re(3,5);
+		
+	
+		
+	}
+
+}

@@ -1,0 +1,26 @@
+package day_09;
+
+public class ClassEx01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Point p = new Point();
+		p.print();
+		
+	}
+
+}
+
+
+
+
+
+
+class Point{
+	int x; int y; //멤버변수 자리
+	//print
+	//같은 클래스의 멤버변수는 모든 메서드에서 공유된다.
+	public void print() {
+		System.out.println("("+x+","+y+")");
+	}
+}

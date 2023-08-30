@@ -1,0 +1,14 @@
+package day_10;
+
+public class Class05 {
+
+	public static void main(String[] args) {
+		// Cardpack클래스
+		// 카드팩 : 52장의 카드들
+		// 멤버변수 : 카드를 52장 담을 수 있는 배열
+		// 메서드 : 1. 카드를 섞는 기능 2. 카드를 한장 빼내는 기능 3. 출력은 Card클래스의 print 사용 4. 카드 초기화 메서드
+		// 생성자 : 52장의 카드를 모두 생성
+
+	}
+
+}

@@ -1,0 +1,58 @@
+package day_08;
+
+public class Lotto {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		/* 로또번호 생성 (1~45랜덤으로 생성)
+		 * 로또번호 -> 1~45까지 6개 = 사용자번호
+		 * 당첨번호 -> 1~45까지 7개 -> 보너스 번호
+		 * 
+		 * 중복생성 금지
+		 * 로또번호 (6자리) 123456
+		 * 당첨번호 (6자리 + 1자리) 123456[7]
+		 * 로또 등수 확인
+		 * 1등 : 6자리 일치
+		 * 2등 : 5자리 일치 + 보너스 번호 일치
+		 * 3등 : 5자리 일치
+		 * 4등 : 4자리 일치
+		 * 5등 : 3자리 일치
+		 * 나머지 꽝
+		 * */
+		System.out.println("로또번호");
+			int num[] =number(6);
+		System.out.println("당첨번호");
+			int lotto[] = Lotto(7);
+	
+			
+		
+			
+	}
+
+	public static int [] number(int size) {
+		int [] num1 = new int [size]; 
+		for(int i = 0; i<num1.length; i++) {
+			num1[i] = (int)(Math.random()*45)+1;
+			System.out.print(num1[i]+" ");
+		}	return num1;
+	}
+	
+	public static int [] Lotto(int size) {
+		int [] num2 = new int [size]; 
+		for(int i = 0; i<num2.length; i++) {
+			num2[i] = (int)(Math.random()*45)+1;
+			System.out.print(num2[i]+" ");
+		}	return num2;
+	}
+
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,71 @@
+package day_09;
+
+public class 과제 {
+
+	public static void main(String[] args) {
+		// 클래스 객체 생성 (2명)
+		// 값을 입력 후 정보출력 (2명)
+		
+		Studant stu = new Studant();
+		
+		stu.print();
+		
+	}
+
+}
+
+//클래스 생성
+//학생 클래스 생성
+//이름, 나이, 전화번호, 주소
+//출력
+//이름(나이) 전화번호
+
+class Studant {
+
+	private String name;
+	private int age;
+	private int num;
+	private String ad;
+	
+	public void print() {
+		System.out.println(name+"("+age+")"+" "+num);
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public String getAd() {
+		return ad;
+	}
+
+	public void setAd(String ad) {
+		this.ad = ad;
+	}
+
+
+	
+	
+
+	
+}

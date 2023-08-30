@@ -1,0 +1,64 @@
+package day_10;
+
+public class Class03 {
+
+	public static void main(String[] args) {
+		// TV클래스
+		// 매개변수 : channel, on,off, vol, name, color
+		// 메서드 : 채널, 파워, 음량
+		
+		TV t = new TV ("삼성티비","검은색");
+		
+		t.chup(); t.chup(); t.chup(); t.chup(); t.chup(); t.chup(); t.chup(); t.chup();
+		
+	}
+
+}
+
+class TV{
+	private int channel;
+	private boolean power;
+	private int vol;
+	private String name;
+	private String color;
+	
+	public TV() {}
+	public TV(String name, String color) {
+		this.name=name;
+		this.color=color;
+	}
+	
+	public void po() { //전원 메서드
+		if(power == true) {
+			System.out.println("전원이 켜졌습니다.");
+		}else {
+			System.out.println("전원이 꺼졌습니다.");
+		}
+	}
+	
+	
+	public void chup() {
+		channel++;
+		System.out.println("현재 채널 : "+channel+"번");
+		
+		if(channel>=5) {
+			channel =1;
+			System.out.println("현재채널 : " + channel+"번");
+		}
+	}
+	
+	public void chdown() {
+		channel--;
+		System.out.println("현재 채널 : "+channel+"번");
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
