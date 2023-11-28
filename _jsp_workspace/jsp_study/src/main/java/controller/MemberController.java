@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -127,6 +128,67 @@ public class MemberController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 				log.info(">>>logout error");
+			}
+			break;
+			
+		case "list":
+			try {	
+				log.info(">>>list check 1");
+				List<MemberVO> list = msv.getList();
+				request.setAttribute("list", list);
+				destPage = "/member/list.jsp";
+			} catch (Exception e) {
+				e.printStackTrace();
+				log.info(">>>list error");
+			}
+			
+			break;
+		case "move":
+			destPage = "/member/detail.jsp";
+			break;
+		case "detail":
+			try {				
+				HttpSession ses = request.getSession();
+				log.info(">>>detail check 1");
+				String id = request.getParameter("id");
+				String pwd = request.getParameter("pwd");
+				String email = request.getParameter("email");
+				int age = Integer.parseInt(request.getParameter("age"));
+				MemberVO mvo = new MemberVO(id, pwd, email, age);
+				isOk = msv.detail(mvo);
+				log.info("detail >> {}",isOk>0? "OK" : "Fail");
+				
+				if(isOk>0) {
+					ses.invalidate();
+					request.setAttribute("modify", 1);
+					destPage = "/index.jsp";
+				}else {
+					request.setAttribute("modify", -1);
+					destPage = "/member/detail.jsp";
+				}
+
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				log.info(">>>member detail error");
+			}
+			break;
+		case "remove":
+			try {
+				log.info(">> remove check1");
+				HttpSession ses = request.getSession();
+				String id = request.getParameter("id");
+				isOk = msv.remove(id);
+				log.info("remove >> {}",isOk>0? "OK":"Fail");
+				if(isOk>0) {
+					ses.invalidate();
+					request.setAttribute("re", 1);
+					destPage = "/index.jsp";
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				log.info(">>>remove error");
 			}
 			break;
 		}

@@ -28,8 +28,7 @@
 	</tr>
 	</c:forEach>
 </table>
-
-<a href="/brd/register?bno=${bvo.bno }"><button>register</button></a>
-<a href="/index.jsp"><button>index</button></a>
+<a href="/brd/register?bno=${bvo.bno }"><button>글쓰기</button></a>
+<a href="/index.jsp"><button>처음으로</button></a>
 </body>
 </html>

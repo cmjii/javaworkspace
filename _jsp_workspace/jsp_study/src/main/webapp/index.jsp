@@ -22,8 +22,8 @@
 		${ses.id }님이 로그인 하셨습니다. <br>
 		계정 생성일 : ${ses.regdate }<br>
 		마지막 접속 : ${ses.lastlogin }<br>
-		<a href="#"><button>회원정보수정</button></a>
-		<a href="#"><button>회원리스트</button></a>
+		<a href="/memb/move"><button>회원정보수정</button></a>
+		<a href="/memb/list"><button>회원리스트</button></a>
 		<a href="/memb/logout"><button>로그아웃</button></a><br>
 		<a href="/brd/register"><button> 글쓰기 페이지로 이동 </button></a>
 	</c:if>
@@ -32,11 +32,22 @@
 <br><hr>
 <a href="/memb/join"><button>회원가입</button></a>
 <a href="/brd/list"><button> 게시판 리스트로 이동 </button></a>
+
 <script type="text/javascript">
 	const msg_login = '<c:out value="${msg_login}" />';
 	console.log(msg_login);
 	if(msg_login == '-1'){
 		alert('로그인 정보가 일치하지 않습니다.');
+	}
+	const modify = '<c:out value="${modify}" />';
+	if(modify=='1'){
+		alert('수정완료');
+	}else if(modify=='-1'){
+		alert('수정실패');
+	}
+	const re = '<c:out value="${re}" />';
+	if(re=='1'){
+		alert('회원 탈퇴 완료');
 	}
 </script>
 </body>

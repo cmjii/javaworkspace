@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,8 +40,11 @@
 	</tr>
 
 	</table>
-	<a href="/brd/modify?bno=${bvo.bno }"><button>수정</button></a>
-	<a href="/brd/remove?bno=${bvo.bno }"><button>삭제</button></a>
+	<c:if test="${ses.id eq bvo.writer }">
+		<a href="/brd/modify?bno=${bvo.bno }"><button>수정</button></a>
+		<a href="/brd/remove?bno=${bvo.bno }"><button>삭제</button></a>	
+	</c:if>
+
 	<a href="/brd/list"><button>리스트</button></a>
 </body>
 </html>

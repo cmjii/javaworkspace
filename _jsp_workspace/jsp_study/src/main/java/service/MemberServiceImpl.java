@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,4 +36,24 @@ public class MemberServiceImpl implements MemberService {
 		log.info(" >>lastLogin check2");
 		return mdao.lastLogin(id);
 	}
+
+	@Override
+	public List<MemberVO> getList() {
+		log.info(" >>list check2");
+		return mdao.selectlist();
+	}
+
+	@Override
+	public int detail(MemberVO mvo) {
+		log.info(" >>detail check2");
+		return mdao.memdetail(mvo);
+	}
+
+	@Override
+	public int remove(String id) {
+		log.info(" >>remove check2");
+		return mdao.memremove(id);
+	}
+
+
 }

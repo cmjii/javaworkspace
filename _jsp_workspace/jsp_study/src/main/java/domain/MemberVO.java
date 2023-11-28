@@ -34,6 +34,7 @@ public class MemberVO {
 		this.age=age;
 	}
 	
+	
 	public MemberVO(String id, String pwd,String email, int age, String regdate, String lastlogin) {
 		this(id,pwd);
 		this.email=email;
