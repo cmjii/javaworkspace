@@ -176,7 +176,11 @@ public class MemberController extends HttpServlet {
 		case "remove":
 			try {
 				log.info(">> remove check1");
+				//내가 한 건 jsp에서 쿼리스트링으로 값을 달고오는 방법 (index.jsp에서 주소에?id를 가져옴)
 				HttpSession ses = request.getSession();
+				//강사님 부분
+				//MemberVO mvo = (MemberVO)ses.getAttribute("ses");
+				//String id = mvo.getId();
 				String id = request.getParameter("id");
 				isOk = msv.remove(id);
 				log.info("remove >> {}",isOk>0? "OK":"Fail");

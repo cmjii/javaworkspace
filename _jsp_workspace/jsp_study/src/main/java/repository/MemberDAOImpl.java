@@ -16,7 +16,7 @@ public class MemberDAOImpl implements MemberDAO {
 			LoggerFactory.getLogger(MemberServiceImpl.class);
 	//sql Session 객체
 	private SqlSession sql;
-	
+	private final String NS = "MamberMapper.";//("MemberMapper.list"); 대신 NS+"list" 사용 가능
 	public MemberDAOImpl() {
 		new DatabaseBuilder();
 		sql = DatabaseBuilder.getFactory().openSession();
