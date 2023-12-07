@@ -6,10 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 <h1>Detail Page</h1>
-<table>
+
+<div>
+<img alt="" src="/_fileUpload/${bvo.imageFile }">
+</div>
+
+<table class="table">
 	<tr>
 		<th>번호:</th>
 		<td>${bvo.bno }</td>
@@ -46,5 +53,41 @@
 	</c:if>
 
 	<a href="/brd/list"><button>리스트</button></a>
+	
+	<hr>
+	<!-- 댓글라인 -->
+	<div>
+	comment line <br>
+	<input type="text" id="cmtWriter" value="${ses.id }" readonly="readonly"><br>
+	<input type="text" id="cmtText" placeholder="Add Comment">
+	<button type="button" id="cmtAddBtn">댓글등록</button>
+	</div>
+	
+	<!-- 댓글 표시 라인 -->
+	<div id="commentLine">
+		<div>
+			<div>cno, bno, writer, regdate</div>
+			<div>
+			<input>	content <br>
+			<button id="moBtn">수정</button> <button id="delBtn">삭제</button>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+	const bnoVal = `<c:out value="${bvo.bno}"/>`
+	console.log(bnoVal);
+	</script>
+	
+	 <script type="text/javascript">
+		const id = `<c:out value="${ses.id}"/>`
+		console.log(cnoVal);
+	</script> 
+	
+	<script src="/resources/board_detail.js"></script>
+	<script type="text/javascript">
+	printCommentList(bnoVal);
+	</script>
+	
 </body>
 </html>

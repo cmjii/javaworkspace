@@ -53,9 +53,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int getTotal() {
+	public int getTotal(PagingVO pgvo) {
 		log.info(">>>> total check2");
-		return bdao.getTotal();
+		return bdao.getTotal(pgvo);
 	}
 
 

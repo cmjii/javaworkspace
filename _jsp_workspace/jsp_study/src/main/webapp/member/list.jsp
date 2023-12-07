@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Member List Page (관리자용)</h1>
-<table border="1">
+<table class="table table-striped">
 	<tr>
 		<th>ID</th>
 		<th>PW</th>

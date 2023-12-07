@@ -20,7 +20,7 @@ public interface BoardDAO {
 	int delete(int bno);
 
 
-	int getTotal();
+	int getTotal(PagingVO pgvo);
 
 	
 
