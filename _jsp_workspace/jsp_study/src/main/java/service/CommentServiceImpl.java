@@ -42,6 +42,12 @@ public class CommentServiceImpl implements CommentService {
 		return cdao.update(cvo);
 	}
 
+	public int removeAllbno(int bno) {
+		// TODO Auto-generated method stub
+		log.info("removeAllbno check2");
+		return cdao.removeAll(bno);
+	}
+
 
 	
 }

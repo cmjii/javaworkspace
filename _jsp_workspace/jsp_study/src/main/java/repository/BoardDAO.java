@@ -22,6 +22,8 @@ public interface BoardDAO {
 
 	int getTotal(PagingVO pgvo);
 
+	String getFileName(int bno);
+
 	
 
 }

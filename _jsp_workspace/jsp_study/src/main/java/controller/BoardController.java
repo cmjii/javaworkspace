@@ -134,6 +134,7 @@ public class BoardController extends HttpServlet {
 				
 				isOk=bsv.register(bvo);
 				log.info("board register >>>> {} ",isOk >0? "OK": "Fail");
+				destPage="list";
 				
 				/* ------------- 파일 업로드가 없을 경우 -----------------
 				 * String title = request.getParameter("title"); String writer =
@@ -227,17 +228,17 @@ public class BoardController extends HttpServlet {
 			
 		case "edit" :
 			try {
-				savePath = getServletContext().getRealPath("/_fileUpload");
-				File fileDir = new File(savePath);
+				savePath = getServletContext().getRealPath("/_fileUpload"); //실제 파일 경로 추출
+				File fileDir = new File(savePath); //파일 객체 생성
 				
-				DiskFileItemFactory fileItemFactory = new DiskFileItemFactory();
-				fileItemFactory.setRepository(fileDir);
+				DiskFileItemFactory fileItemFactory = new DiskFileItemFactory(); //파일 업로드를 처리하기 위한 기본적인 설정
+				fileItemFactory.setRepository(fileDir); //임시 저장소 설정
 				fileItemFactory.setSizeThreshold(1024*1024*3);
 				BoardVO bvo = new BoardVO();
 				
-				ServletFileUpload fileUpload = new ServletFileUpload(fileItemFactory);
+				ServletFileUpload fileUpload = new ServletFileUpload(fileItemFactory); //fileItemFactory객체를 해당 객체를 통해 업로드 파일을 처리
 				
-				List<FileItem> itemList = fileUpload.parseRequest(request);
+				List<FileItem> itemList = fileUpload.parseRequest(request); //FileItem -> commons라이브러리에서 제공 멀티파트와 업로드 요청을 처리
 				String old_file=null;
 				
 				for(FileItem item : itemList) {
@@ -319,6 +320,16 @@ public class BoardController extends HttpServlet {
 			try {
 				int bno = Integer.parseInt(request.getParameter("bno"));
 				log.info("remove check1");
+				savePath = getServletContext().getRealPath("/_fileUpload"); //실제 파일 경로 추출
+				String FileName = bsv.getFileName(bno);
+				int isDel=0;
+				if(FileName != null) {
+					log.info("FileName >>> "+FileName);
+					FileRemoveHandler fh = new FileRemoveHandler();
+					isDel = fh.deleteFile(FileName, savePath);
+					log.info("isDel>>> "+isDel);
+				}
+				
 				isOk = bsv.remove(bno);
 				log.info("remove >> {}",isOk>0? "OK":"Fail");
 				destPage="list";

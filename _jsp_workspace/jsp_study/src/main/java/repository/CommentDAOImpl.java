@@ -55,4 +55,13 @@ public int update(CommentVO cvo) {
 	if(isok>0)sql.commit();
 	return isok;
 }
+
+
+@Override
+public int removeAll(int bno) {
+	log.info("removeAll check3");
+	isok = sql.delete("CommentMapper.delAll",bno);
+	sql.commit();
+	return isok;
+}
 }
