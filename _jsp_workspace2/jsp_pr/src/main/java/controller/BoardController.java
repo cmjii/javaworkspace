@@ -9,11 +9,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import domain.BoardVO;
+import domain.PagingVO;
+import handler.PagingHandler;
 import service.BoardService;
 import service.BoardServiceImpl;
 
@@ -62,7 +65,22 @@ public class BoardController extends HttpServlet {
 			
 		case "list" :
 				try {
-					List<BoardVO> list=bsv.getList();
+					//페이지네이션
+					PagingVO pgvo = new PagingVO();
+					log.info(request.getParameter("pageNo"));
+					if(request.getParameter("pageNo") != null) {
+						int pageNo = Integer.parseInt(request.getParameter("pageNo"));
+						int qty = Integer.parseInt(request.getParameter("qty"));
+						String type = request.getParameter("type");
+						String keyword = request.getParameter("keyword");
+						log.info(">>> pageNo / qty"+pageNo +"/"+qty+" / "+type+" / " + keyword);
+						pgvo = new PagingVO(pageNo, qty,type,keyword);
+					}
+					int totalCount = bsv.gettotal(pgvo);
+					PagingHandler ph = new PagingHandler(pgvo, totalCount);
+					request.setAttribute("ph", ph);
+					//리스트
+					List<BoardVO> list=bsv.getList(pgvo);
 					request.setAttribute("list", list);
 					destpage = "/board/list.jsp";
 				} catch (Exception e) {
@@ -106,6 +124,18 @@ public class BoardController extends HttpServlet {
 				e.printStackTrace();
 				log.info("edit ERROR");
 			}
+			break;
+		case "remove":
+			try {
+				int bno = Integer.parseInt(request.getParameter("bno"));
+				ok = bsv.remove(bno);
+				destpage = "/brd/list";
+			} catch (Exception e) {
+				e.printStackTrace();
+				log.info("remove ERROR");
+			}
+			break;
+	
 		}
 
 		rdp = request.getRequestDispatcher(destpage);

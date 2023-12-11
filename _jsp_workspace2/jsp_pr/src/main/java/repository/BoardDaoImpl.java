@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import domain.BoardVO;
+import domain.PagingVO;
 import orm.DatabaseBuilder;
 
 public class BoardDaoImpl implements BoardDao {
@@ -28,16 +29,16 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public List<BoardVO> list() {
+	public List<BoardVO> list(PagingVO pgvo) {
 		log.info(">> list check3");
 		
-		return sql.selectList("BoardMapper.list");
+		return sql.selectList("BoardMapper.list",pgvo);
 	}
 
 	@Override
 	public BoardVO detail(int bno) {
 		log.info(">> list check3");
-		return sql.selectOne("BoardMapper.de",bno);
+		return sql.selectOne("BoardMapper.det",bno);
 	}
 
 	@Override
@@ -55,4 +56,22 @@ public class BoardDaoImpl implements BoardDao {
 		if(ok>0) sql.commit();
 		return ok;
 	}
+
+	@Override
+	public int remove(int bno) {
+		log.info("remove check3");
+		int ok = sql.delete("BoardMapper.del",bno);
+		if(ok>0) sql.commit();
+		return ok;
+	}
+
+	@Override
+	public int gettotal(PagingVO pgvo) {
+		log.info("total check3");
+		return sql.selectOne("BoardMapper.total",pgvo);
+	}
+
+
+
+
 }

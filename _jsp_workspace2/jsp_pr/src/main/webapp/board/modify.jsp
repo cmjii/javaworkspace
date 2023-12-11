@@ -41,13 +41,12 @@
 	</tr>
 </table>
 <button type="submit">수정</button>
-<button type="reset">취소</button>
 <a href="/brd/remove?bno=${bvo.bno }"><button type="button">삭제</button></a>
 </form>
 
 
 
 <a href="/index.jsp"><button>처음으로</button></a>
-<a href="/brd/list"><button>글목록</button></a>
+<a href="/brd/list"><button>취소</button></a>
 </body>
 </html>
